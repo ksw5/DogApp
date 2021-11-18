@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ui.fragments.RandomDogFragment"
+    android:paddingBottom="30dp"
+    android:background="@color/white">
+
+
+    <ImageView
+        android:id="@+id/randomDogImage"
+        android:layout_width="415dp"
+        android:layout_height="393dp"
+        android:layout_marginTop="108dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <ImageButton
+        android:id="@+id/randomButton"
+        android:layout_width="138dp"
+        android:layout_height="132dp"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/dog_paw"
+        android:backgroundTint="@color/main_orange"
+        android:outlineAmbientShadowColor="@color/med_orange"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/previousFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/white"
+        app:srcCompat="@drawable/ic_previous"
+        app:borderWidth="5dp"
+        android:outlineAmbientShadowColor="@color/main_orange"
+        android:outlineSpotShadowColor="@color/main_orange"
+        app:tint="@color/med_orange" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/searchFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:borderWidth="5dp"
+        app:tint="@color/med_orange"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/white"
+        app:srcCompat="@drawable/ic_search"
+        android:outlineAmbientShadowColor="@color/main_orange"
+        android:outlineSpotShadowColor="@color/main_orange"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

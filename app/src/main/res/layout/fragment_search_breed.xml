@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ui.fragments.SearchBreedFragment"
+    android:paddingTop="8dp"
+    android:id="@+id/searchLayout"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/userSearch"
+            android:layout_width="245dp"
+            android:layout_height="34dp"
+            android:background="@drawable/et_background"
+            android:hint="Ex. Poodle"
+            android:textColor="@color/main_orange"
+            android:textColorHint="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/searchBreedBtn"
+            app:layout_constraintHorizontal_bias="0.271"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/searchBreedBtn"
+            android:layout_width="62dp"
+            android:layout_height="54dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.985"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_search"
+            app:backgroundTint="@color/white"
+            android:outlineAmbientShadowColor="@color/main_orange"
+            android:outlineSpotShadowColor="@color/main_orange"
+            app:borderWidth="5dp"
+            app:tint="@color/med_orange"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.agrawalsuneet.dotsloader.loaders.LazyLoader
+        android:id="@+id/dotLoader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        app:lazyloader_animDur="400"
+        app:lazyloader_dotsDist="10dp"
+        app:lazyloader_dotsRadius="10dp"
+        app:lazyloader_firstDelayDur="150"
+        app:lazyloader_firstDotColor="@color/med_orange"
+        app:lazyloader_interpolator="@android:anim/decelerate_interpolator"
+        app:lazyloader_secondDelayDur="300"
+        app:lazyloader_secondDotColor="@color/med_orange"
+        app:lazyloader_thirdDotColor="@color/med_orange" />
+
+    <ImageView
+        android:id="@+id/imageViewSearch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+        android:layout_centerInParent="true" />
+
+
+</RelativeLayout>
