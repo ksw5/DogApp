@@ -33,6 +33,7 @@ class RandomDogFragment : Fragment() {
 
         binding.randomButton.setOnClickListener {
             viewModel.getNewDog()
+            binding.randomDogImage.visibility = View.GONE
         }
 
         binding.searchFab.setOnClickListener {
@@ -45,6 +46,7 @@ class RandomDogFragment : Fragment() {
             Glide.with(this)
                 .load(it.message)
                 .into(binding.randomDogImage)
+            binding.randomDogImage.visibility = View.VISIBLE
         })
     }
 }

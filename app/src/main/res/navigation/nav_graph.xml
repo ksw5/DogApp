@@ -13,10 +13,25 @@
         <action
             android:id="@+id/action_randomDogFragment_to_searchBreedFragment"
             app:destination="@id/searchBreedFragment" />
+        <action
+            android:id="@+id/action_randomDogFragment_to_previousDogFragment"
+            app:destination="@id/previousDogFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchBreedFragment"
         android:name="com.example.dogapp.view.ui.fragments.SearchBreedFragment"
         android:label="fragment_search_breed"
-        tools:layout="@layout/fragment_search_breed" />
+        tools:layout="@layout/fragment_search_breed" >
+        <action
+            android:id="@+id/action_searchBreedFragment_to_randomDogFragment"
+            app:destination="@id/randomDogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/previousDogFragment"
+        android:name="com.example.dogapp.view.ui.fragments.PreviousDogFragment"
+        android:label="PreviousDogFragment" >
+        <action
+            android:id="@+id/action_previousDogFragment_to_randomDogFragment"
+            app:destination="@id/randomDogFragment" />
+    </fragment>
 </navigation>
