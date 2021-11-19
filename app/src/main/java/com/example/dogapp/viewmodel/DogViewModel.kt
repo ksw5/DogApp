@@ -12,6 +12,9 @@ class DogViewModel : ViewModel() {
     private val _apiResponse = MutableLiveData<DogApiResponse>()
     val apiResponse: LiveData<DogApiResponse> = _apiResponse
 
+    private var _status = MutableLiveData<String>()
+    val status: LiveData<String> = _status
+
     init {
         getNewDog()
     }
@@ -23,8 +26,16 @@ class DogViewModel : ViewModel() {
     }
 
     fun getBreed(breed: String) {
+
         viewModelScope.launch {
             _apiResponse.value = DogApi.retrofitService.getRandomDogImageByBreed(breed!!)
+            _status.value = DogApi.retrofitService.getRandomDogImageByBreed(breed!!).status!!
+
         }
+
+    }
+
+    fun getPreviousDog() {
+
     }
 }

@@ -4,5 +4,8 @@ import com.squareup.moshi.Json
 
 data class DogApiResponse(
     @Json(name = "message")
-    val message: String
+    val message: String,
+
+    @Json(name = "status")
+    val status: String
 )

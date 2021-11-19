@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.example.dogapp.databinding.FragmentSearchBreedBinding
+import com.example.dogapp.model.network.DogApiResponse
 import com.example.dogapp.utils.hideKeyboard
 import com.example.dogapp.viewmodel.DogViewModel
+import com.google.android.material.snackbar.Snackbar
 
 
 class SearchBreedFragment : Fragment() {
