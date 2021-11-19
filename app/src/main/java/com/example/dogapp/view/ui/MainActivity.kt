@@ -23,5 +23,7 @@ class MainActivity : AppCompatActivity() {
         val config = AppBarConfiguration(navController.graph)
 
         findViewById<Toolbar>(R.id.toolBar).setupWithNavController(navController, config)
+
+        supportActionBar?.setTitle("Home")
     }
 }

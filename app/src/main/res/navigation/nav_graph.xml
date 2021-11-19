@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/randomDogFragment"
         android:name="com.example.dogapp.view.ui.fragments.RandomDogFragment"
-        android:label="fragment_random_dog"
+        android:label="Home"
         tools:layout="@layout/fragment_random_dog" >
         <action
             android:id="@+id/action_randomDogFragment_to_searchBreedFragment"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/searchBreedFragment"
         android:name="com.example.dogapp.view.ui.fragments.SearchBreedFragment"
-        android:label="fragment_search_breed"
+        android:label="Search by breed"
         tools:layout="@layout/fragment_search_breed" >
         <action
             android:id="@+id/action_searchBreedFragment_to_randomDogFragment"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/previousDogFragment"
         android:name="com.example.dogapp.view.ui.fragments.PreviousDogFragment"
-        android:label="PreviousDogFragment" >
+        android:label="Previous Dog" >
         <action
             android:id="@+id/action_previousDogFragment_to_randomDogFragment"
             app:destination="@id/randomDogFragment" />

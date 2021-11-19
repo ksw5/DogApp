@@ -31,6 +31,7 @@ class SearchBreedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         breedImage()
+        
     }
 
     private fun breedImage() {
