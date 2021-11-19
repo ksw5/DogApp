@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:padding="8dp"
     android:paddingBottom="30dp"
-    tools:context=".view.ui.fragments.RandomDogFragment"
-    android:padding="8dp">
+    tools:context=".view.ui.fragments.RandomDogFragment">
 
     <com.agrawalsuneet.dotsloader.loaders.LazyLoader
         android:id="@+id/dotLoader"
@@ -19,6 +19,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.398"
         app:lazyloader_animDur="400"
         app:lazyloader_dotsDist="10dp"
         app:lazyloader_dotsRadius="10dp"
@@ -27,16 +28,21 @@
         app:lazyloader_interpolator="@android:anim/decelerate_interpolator"
         app:lazyloader_secondDelayDur="300"
         app:lazyloader_secondDotColor="@color/main_orange"
-        app:lazyloader_thirdDotColor="@color/main_orange" />
+        app:lazyloader_thirdDotColor="@color/main_orange">
+
+
+    </com.agrawalsuneet.dotsloader.loaders.LazyLoader>
 
     <ImageView
         android:id="@+id/randomDogImage"
-        android:layout_width="415dp"
-        android:layout_height="393dp"
-        android:layout_marginTop="108dp"
+        android:layout_width="418dp"
+        android:layout_height="421dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.416"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <ImageButton
