@@ -28,7 +28,7 @@
         app:lazyloader_thirdDotColor="@color/main_orange" />
 
     <ImageView
-        android:id="@+id/imageViewSearch"
+        android:id="@+id/searchBreedImage"
         android:layout_width="match_parent"
         android:layout_height="476dp"
         android:layout_centerInParent="true"

@@ -39,6 +39,10 @@ class RandomDogFragment : Fragment() {
         binding.searchFab.setOnClickListener {
             findNavController().navigate(RandomDogFragmentDirections.actionRandomDogFragmentToSearchBreedFragment())
         }
+
+        binding.previousFab.setOnClickListener {
+            findNavController().navigate(RandomDogFragmentDirections.actionRandomDogFragmentToPreviousDogFragment())
+        }
     }
 
     private fun callDogPhoto() {
@@ -51,6 +55,6 @@ class RandomDogFragment : Fragment() {
     }
 }
 
-//findNavController().navigate(MainFragmentDirections.actionMainFragmentToSearchFragment())
+
 
 

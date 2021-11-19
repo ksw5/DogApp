@@ -31,7 +31,7 @@ class SearchBreedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         breedImage()
-        
+
     }
 
     private fun breedImage() {
@@ -41,7 +41,7 @@ class SearchBreedFragment : Fragment() {
             viewModel.apiResponse.observe(viewLifecycleOwner, {
                 Glide.with(this)
                     .load(it.message)
-                    .into(binding.imageViewSearch)
+                    .into(binding.searchBreedImage)
             })
             hideKeyboard()
         }
