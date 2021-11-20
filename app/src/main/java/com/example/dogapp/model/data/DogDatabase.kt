@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [Dog::class], version = 1)
 abstract class DogDatabase : RoomDatabase() {
-    abstract fun dogDao(): DogDao
+    abstract fun getDogDao(): DogDao
 
     companion object {
         @Volatile
@@ -16,7 +16,8 @@ abstract class DogDatabase : RoomDatabase() {
             return INSTANCE ?: synchronized(this) {
                 INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,
-                    DogDatabase::class.java, "color_database"
+                    DogDatabase::class.java,
+                    "dog_database"
                 )
                     .fallbackToDestructiveMigration()
                     .build()

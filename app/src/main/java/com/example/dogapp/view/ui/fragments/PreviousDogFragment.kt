@@ -26,11 +26,17 @@ class PreviousDogFragment : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        callPreviousDogPhoto()
+    }
+
     private fun callPreviousDogPhoto() {
-        viewModel.apiResponse.observe(viewLifecycleOwner, {
-            Glide.with(this)
-                .load(it.message)
-                .into(binding.previousDogImage)
-        })
+        viewModel.showPreviousDogs()
+        /*Glide.with(this)
+            .load()
+            .into(binding.previousDogImage)*/
+
+
     }
 }
