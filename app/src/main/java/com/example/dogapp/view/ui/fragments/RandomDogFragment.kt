@@ -43,16 +43,16 @@ class RandomDogFragment : Fragment() {
         callDogPhoto()
 
         binding.randomButton.setOnClickListener {
-            val message = DogApiResponse("message").toString()
-            val dog = Dog(id = 0, url = message)
+
             viewModel.getNewDog()
             binding.randomDogImage.visibility = View.GONE
-            viewLifecycleOwner.lifecycleScope.launch {
-                viewModel.addPreviousDog(dog)
-
-            }
 
         }
+        /*lifecycleScope.launch {
+            val message = DogApiResponse("message").toString()
+            val dog = Dog(id = 0, url = message)
+            viewModel.addPreviousDog(dog)
+        }*/
 
         binding.searchFab.setOnClickListener {
             findNavController().navigate(RandomDogFragmentDirections.actionRandomDogFragmentToSearchBreedFragment())
