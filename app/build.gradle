@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -67,11 +67,10 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // Room
-    implementation 'androidx.room:room-runtime:2.3.0'
-    annotationProcessor 'androidx.room:room-compiler:2.3.0'
-    kapt 'androidx.room:room-compiler:2.3.0'
-    implementation 'androidx.room:room-ktx:2.3.0'
-    testImplementation 'androidx.room:room-testing:2.3.0'
+    implementation 'androidx.room:room-runtime:2.4.0-beta02'
+    kapt 'androidx.room:room-compiler:2.4.0-beta02'
+    implementation 'androidx.room:room-ktx:2.4.0-beta02'
+    testImplementation 'androidx.room:room-testing:2.4.0-beta02'
 
     // Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
@@ -79,7 +78,7 @@ dependencies {
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
 
     //Dot loader
     implementation 'com.agrawalsuneet.androidlibs:dotsloader:1.4'

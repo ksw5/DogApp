@@ -9,13 +9,15 @@ import com.example.dogapp.DogApi
 import com.example.dogapp.model.data.Dog
 import com.example.dogapp.model.data.DogDao
 import com.example.dogapp.model.network.DogApiResponse
-import com.example.dogapp.model.repository.DogRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
-class DogViewModel(val dogRepository: DogRepository) : ViewModel() {
+class DogViewModel(
+    val dogDao: DogDao,
+) : ViewModel() {
     private val _apiResponse = MutableLiveData<DogApiResponse>()
     val apiResponse: LiveData<DogApiResponse> = _apiResponse
+
 
     private var _status = MutableLiveData<String>()
     val status: LiveData<String> = _status
@@ -42,10 +44,15 @@ class DogViewModel(val dogRepository: DogRepository) : ViewModel() {
 
     }
 
-    suspend fun addPreviousDog(dog: Dog) = dogRepository.insert(dog)
+    suspend fun insert(dog: List<Dog>) {
+        dogDao.insert(dog)
+    }
 
 
-    fun showPreviousDogs(): Flow<List<Dog>> = dogRepository.getAllPreviousDogs()
+    /*suspend fun addPreviousDog(dog: Dog) = dogRepository.insert()*/
+
+
+    fun showPreviousDogs(): Flow<List<Dog>> = dogDao.getPreviousDogs()
 
   /*  fun getPreviousDog() {
 

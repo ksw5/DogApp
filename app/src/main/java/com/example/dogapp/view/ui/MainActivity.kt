@@ -13,22 +13,18 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.dogapp.DogApplication
 import com.example.dogapp.R
+import com.example.dogapp.model.data.DogDao
 import com.example.dogapp.model.data.DogDatabase
-import com.example.dogapp.model.repository.DogRepository
 import com.example.dogapp.viewmodel.DogViewModel
 import com.example.dogapp.viewmodel.DogViewModelFactory
 
 class MainActivity : AppCompatActivity() {
-    lateinit var viewModel: DogViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
 
-        val dogRepository = DogRepository(DogDatabase.getInstance(this))
-        val viewModelProviderFactory = DogViewModelFactory(dogRepository)
-        viewModel = ViewModelProvider(this, viewModelProviderFactory).get(DogViewModel::class.java)
 
         setSupportActionBar(findViewById(R.id.toolBar))
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
