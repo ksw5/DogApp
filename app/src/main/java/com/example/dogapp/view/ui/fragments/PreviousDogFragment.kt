@@ -28,15 +28,15 @@ class PreviousDogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        callPreviousDogPhoto()
+        //callPreviousDogPhoto()
     }
 
-    private fun callPreviousDogPhoto() {
+   /* private fun callPreviousDogPhoto() {
         viewModel.showPreviousDogs()
-        /*Glide.with(this)
+        *//*Glide.with(this)
             .load()
             .into(binding.previousDogImage)*/
 
 
-    }
+
 }
