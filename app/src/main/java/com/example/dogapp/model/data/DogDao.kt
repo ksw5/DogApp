@@ -11,10 +11,7 @@ import kotlinx.coroutines.flow.Flow
 interface DogDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(dog: List<Dog>)
-
-    @Query("SELECT * FROM previousDogs WHERE url = :url")
-    fun getImageUrl(url: String) : Dog
+    suspend fun insert(dog: Dog)
 
 
     @Query("SELECT * FROM previousDogs")

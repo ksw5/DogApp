@@ -23,9 +23,8 @@ import kotlinx.coroutines.withContext
 class RandomDogFragment : Fragment() {
     private var _binding: FragmentRandomDogBinding? = null
     val binding get() = _binding!!
+    lateinit var viewModel : DogViewModel
 
-   lateinit var viewModel : DogViewModel
-    private lateinit var factory: DogViewModelFactory
 
 
     override fun onCreateView(
@@ -35,7 +34,6 @@ class RandomDogFragment : Fragment() {
     ): View? {
         _binding = FragmentRandomDogBinding.inflate(inflater, container, false)
         val view = binding.root
-        //viewModel = ViewModelProvider(requireParentFragment(), factory).get(DogViewModel::class.java)
         return view
     }
 

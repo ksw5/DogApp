@@ -45,7 +45,7 @@ class DogViewModel(
 
     }
 
-    suspend fun insert(dog: List<Dog>) {
+    suspend fun insert(dog: Dog) {
         dogRepository.insert(dog)
     }
 
