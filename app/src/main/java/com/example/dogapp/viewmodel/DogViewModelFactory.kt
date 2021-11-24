@@ -8,12 +8,12 @@ import com.example.dogapp.model.repository.DogRepository
 
 
 class DogViewModelFactory(
-    private val dogRepository: DogRepository
+    private val dogDao: DogDao
 ) : ViewModelProvider.Factory{
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(DogViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return DogViewModel(dogRepository) as T
+            return DogViewModel(dogDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class DogViewModel(
-    val dogRepository: DogRepository
+    val dogDao: DogDao
 ) : ViewModel() {
     private val _apiResponse = MutableLiveData<DogApiResponse>()
     val apiResponse: LiveData<DogApiResponse> = _apiResponse
@@ -22,6 +22,7 @@ class DogViewModel(
 
     private var _status = MutableLiveData<String>()
     val status: LiveData<String> = _status
+
 
 
 
@@ -46,8 +47,10 @@ class DogViewModel(
     }
 
     suspend fun insert(dog: Dog) {
-        dogRepository.insert(dog)
+        dogDao.insert(dog)
     }
+
+    fun showPreviousDogs(): Flow<List<Dog>> = dogDao.getPreviousDogs()
 
 
     /*suspend fun addPreviousDog(dog: Dog) = dogRepository.insert()*/

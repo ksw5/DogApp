@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dogapp.DogApplication
@@ -20,7 +21,11 @@ class PreviousDogFragment : Fragment() {
     private var _binding: FragmentPreviousDogBinding? = null
     val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    lateinit var viewModel: DogViewModel
+    //lateinit var viewModel: DogViewModel
+    val viewModel: DogViewModel by activityViewModels() {
+        DogViewModelFactory((activity?.application as DogApplication).database.dogDao())
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +39,7 @@ class PreviousDogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = (activity as MainActivity).viewModel
+        //viewModel = (activity as MainActivity).viewModel
         //callPreviousDogPhoto()
     }
 
