@@ -4,15 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.dogapp.model.data.DogDao
 
-
-
-class DogViewModelFactory(
+class PreviousViewModelFactory(
     private val dogDao: DogDao
 ) : ViewModelProvider.Factory{
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(DogViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(PreviousViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return DogViewModel(dogDao) as T
+            return PreviousViewModel(dogDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

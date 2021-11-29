@@ -11,5 +11,5 @@ data class Dog(
     @PrimaryKey (autoGenerate = true)
     val id: Int,
     @ColumnInfo(name = "url")
-    var url: String? = null
+    var url: String
 )

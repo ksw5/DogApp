@@ -9,19 +9,24 @@ import com.example.dogapp.DogApi
 import com.example.dogapp.model.data.Dog
 import com.example.dogapp.model.data.DogDao
 import com.example.dogapp.model.network.DogApiResponse
-import com.example.dogapp.model.repository.DogRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
 class DogViewModel(
-    val dogRepository: DogRepository
+    val dogDao: DogDao
 ) : ViewModel() {
     private val _apiResponse = MutableLiveData<DogApiResponse>()
     val apiResponse: LiveData<DogApiResponse> = _apiResponse
 
+    val previousDogs: MutableLiveData<List<Dog>>
+        get() = _previousDogs
 
-    private var _status = MutableLiveData<String>()
-    val status: LiveData<String> = _status
+    private val _previousDogs: MutableLiveData<List<Dog>> = MutableLiveData()
+    val url = apiResponse.value.toString()
+
 
 
 
@@ -46,21 +51,14 @@ class DogViewModel(
     }
 
     suspend fun insert(dog: Dog) {
-        dogRepository.insert(dog)
+        dogDao.insert(dog)
+    }
+
+    fun handlePreviousDogs(dog: List<Dog>) {
+        _previousDogs.value = dog
+        }
     }
 
 
-    /*suspend fun addPreviousDog(dog: Dog) = dogRepository.insert()*/
 
 
-    //fun showPreviousDogs(): Flow<List<Dog>> = dogRepository.getPreviousDogs()
-
-  /*  fun getPreviousDog() {
-
-    }
-    fun allPreviousDogs(): Flow<List<Dog>> = dogDao.getPreviousDogs()
-
-    fun getDogImageUrl(url : String) : Dog = dogDao.getImageUrl(url)
-
-    fun addPreviousDog(dog: Dog) = dogDao.insert(dog)*/
-}

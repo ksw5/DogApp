@@ -49,13 +49,12 @@
         android:id="@+id/randomButton"
         android:layout_width="111dp"
         android:layout_height="105dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/dog_paw"
         android:backgroundTint="@color/main_orange"
         android:elevation="10dp"
         android:outlineAmbientShadowColor="@color/med_orange"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
