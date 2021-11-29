@@ -24,10 +24,6 @@ interface ApiRequest {
     @GET("breeds/image/random")
     suspend fun getRandomDogImage(): DogApiResponse
 
-    @GET("breeds/image/random")
-    suspend fun getRandomImageByUrl(): DogApiResponse
-
-
     @GET("breed/{breed}/images/random")
     suspend fun getRandomDogImageByBreed(@Path("breed") breed: String): DogApiResponse
 
