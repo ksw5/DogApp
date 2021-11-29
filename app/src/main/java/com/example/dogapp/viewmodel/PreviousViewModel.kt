@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.dogapp.DogApi
 import com.example.dogapp.model.data.Dog
 import com.example.dogapp.model.data.DogDao
 import kotlinx.coroutines.Dispatchers

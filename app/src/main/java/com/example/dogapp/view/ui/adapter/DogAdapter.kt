@@ -1,5 +1,7 @@
 package com.example.dogapp.view.ui.adapter
 
+import android.icu.number.NumberFormatter.with
+import android.icu.number.NumberRangeFormatter.with
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,14 +10,18 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.GenericTransitionOptions.with
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Glide.with
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.with
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
 import com.example.dogapp.R
 import com.example.dogapp.model.data.Dog
+import com.squareup.picasso.Picasso
 
-class DogAdapter: ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallback) {
+class DogAdapter : ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallback) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogViewHolder {
@@ -36,7 +42,9 @@ class DogAdapter: ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallback) {
     }
 
     override fun onBindViewHolder(holder: DogViewHolder, position: Int) {
-        holder.bind(position)
+        val dog = getItem(position)
+        holder.bind(dog)
+
     }
 
     companion object {
@@ -52,24 +60,33 @@ class DogAdapter: ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallback) {
         }
     }
 
-    inner class DogViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val dogImage: ImageView = itemView.findViewById(R.id.dog_image)
+    class DogViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        fun bind(dog: Dog) {
+            val dogImage = itemView.findViewById<ImageView>(R.id.dog_image)
+            Picasso.get().load(dog.url).fit().centerCrop()
+                .into(dogImage);
+
+            //Glide.with(itemView.context).load(dog.url).centerCrop().into(dogImage)
+        }
+    }
+}
+        /*val dogImage = itemView.findViewById<ImageView>(R.id.dog_image)
         fun bind(position: Int) {
             val photoUrl = getItem(position)
             dogImage.transitionName = photoUrl.url
             photoUrl.url?.let { loadImage(it) }
         }
 
-    private fun loadImage(photoUrl: String) {
-        Glide.with(itemView)
-            .load(photoUrl)
-            .override(200, 200)
-            .transform(RoundedCorners(4))
-            .transition(withCrossFade())
-            .into(dogImage)
+        private fun loadImage(photoUrl: String) {
+            Glide.with(itemView)
+                .load(photoUrl)
+                .override(200, 200)
+                .transform(RoundedCorners(4))
+                .transition(withCrossFade())
+                .into(dogImage)
 
-    }
-    }
+        }*/
 
-}
+
 

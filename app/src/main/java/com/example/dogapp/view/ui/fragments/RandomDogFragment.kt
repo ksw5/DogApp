@@ -46,13 +46,14 @@ class RandomDogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //val (id, url) = args
+
+
         callDogPhoto()
 
         binding.randomButton.setOnClickListener {
             viewModel.getNewDog()
             binding.randomDogImage.visibility = View.GONE
-            val dog = Dog(id = 0, url = viewModel.apiResponse.value.toString())
+            val dog = Dog(id = 0, url = viewModel.apiResponse.value?.message.toString())
             lifecycleScope.launch {
                 viewModel.insert(dog)
             }

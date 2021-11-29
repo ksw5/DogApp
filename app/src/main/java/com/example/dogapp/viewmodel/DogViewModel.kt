@@ -9,10 +9,6 @@ import com.example.dogapp.DogApi
 import com.example.dogapp.model.data.Dog
 import com.example.dogapp.model.data.DogDao
 import com.example.dogapp.model.network.DogApiResponse
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
 class DogViewModel(
@@ -21,11 +17,12 @@ class DogViewModel(
     private val _apiResponse = MutableLiveData<DogApiResponse>()
     val apiResponse: LiveData<DogApiResponse> = _apiResponse
 
+
     val previousDogs: MutableLiveData<List<Dog>>
         get() = _previousDogs
 
     private val _previousDogs: MutableLiveData<List<Dog>> = MutableLiveData()
-    val url = apiResponse.value.toString()
+
 
 
 
@@ -47,8 +44,16 @@ class DogViewModel(
 
 
         }
+    }
+
+    fun getDogImageUrl() {
+        viewModelScope.launch {
+            _apiResponse.value = DogApi.retrofitService.getRandomDogImage()
+
+        }
 
     }
+
 
     suspend fun insert(dog: Dog) {
         dogDao.insert(dog)
