@@ -6,22 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.dogapp.DogApplication
 import com.example.dogapp.databinding.FragmentRandomDogBinding
 import com.example.dogapp.model.data.Dog
-import com.example.dogapp.model.network.DogApiResponse
-import com.example.dogapp.view.ui.MainActivity
 import com.example.dogapp.viewmodel.DogViewModel
 import com.example.dogapp.viewmodel.DogViewModelFactory
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+
 
 class RandomDogFragment : Fragment() {
     private var _binding: FragmentRandomDogBinding? = null
@@ -78,21 +72,6 @@ class RandomDogFragment : Fragment() {
     }
 
 }
-
-// viewModel.dogPhoto.value
-
-/*fun saveDogs(dogs: Array<DogApiResponse>) {
-              var items = ArrayList<Dog>()
-              for (dog in dogs) {
-                  val item = Dog
-                  item.url = dog.message
-              }
-          }*/
-/*lifecycleScope.launch {
-    val message = DogApiResponse("message").toString()
-    val dog = Dog(id = 0, url = message)
-    viewModel.addPreviousDog(dog)
-}*/
 
 
 

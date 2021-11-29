@@ -1,6 +1,5 @@
 package com.example.dogapp.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,15 +15,6 @@ class DogViewModel(
 ) : ViewModel() {
     private val _apiResponse = MutableLiveData<DogApiResponse>()
     val apiResponse: LiveData<DogApiResponse> = _apiResponse
-
-
-    val previousDogs: MutableLiveData<List<Dog>>
-        get() = _previousDogs
-
-    private val _previousDogs: MutableLiveData<List<Dog>> = MutableLiveData()
-
-
-
 
 
     init {
@@ -46,23 +36,10 @@ class DogViewModel(
         }
     }
 
-    fun getDogImageUrl() {
-        viewModelScope.launch {
-            _apiResponse.value = DogApi.retrofitService.getRandomDogImage()
-
-        }
-
-    }
-
-
     suspend fun insert(dog: Dog) {
         dogDao.insert(dog)
     }
-
-    fun handlePreviousDogs(dog: List<Dog>) {
-        _previousDogs.value = dog
-        }
-    }
+}
 
 
 
