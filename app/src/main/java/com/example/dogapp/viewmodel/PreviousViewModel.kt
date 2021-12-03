@@ -15,27 +15,15 @@ import kotlinx.coroutines.launch
 
 class PreviousViewModel(private val dogDao: DogDao) : ViewModel(){
 
-    val previousDogs: LiveData<List<Dog>>
-        get() = _previousDogs
-
-    private val _previousDogs: MutableLiveData<List<Dog>> = MutableLiveData()
-
-    init {
-        observePreviousDogs()
-    }
-
-
-    fun handleDogs(dog: List<Dog>) {
-        _previousDogs.value = dog
-    }
-
-    private fun observePreviousDogs() {
+    fun showPreviousDogs(): Flow<List<Dog>> = dogDao.getPreviousDogs()
+}
+/*fun handleDogs(dog: List<Dog>) {
+    _previousDogs.value = dog
+}*/
+/*private fun observePreviousDogs() {
         viewModelScope.launch {
             dogDao.getPreviousDogs()
                 .flowOn(Dispatchers.IO)
                 .collect { handleDogs(it) }
         }
-    }
-
-    fun showPreviousDogs(): Flow<List<Dog>> = dogDao.getPreviousDogs()
-}
+    }*/

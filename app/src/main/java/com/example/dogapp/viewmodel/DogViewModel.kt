@@ -16,19 +16,25 @@ class DogViewModel(
     private val _apiResponse = MutableLiveData<DogApiResponse>()
     val apiResponse: LiveData<DogApiResponse> = _apiResponse
 
+    private val _status = DogApiResponse("", "success").status
+    val status = _status
+
 
     init {
         getNewDog()
     }
 
     fun getNewDog() {
-        viewModelScope.launch {
-            _apiResponse.value = DogApi.retrofitService.getRandomDogImage()
+        try {
+            viewModelScope.launch {
+                _apiResponse.value = DogApi.retrofitService.getRandomDogImage()
+            }
+        } catch (e: Exception) {
+            "Failure: ${e.message}"
         }
     }
 
     fun getBreed(breed: String) {
-
         viewModelScope.launch {
             _apiResponse.value = DogApi.retrofitService.getRandomDogImageByBreed(breed!!)
 
@@ -36,10 +42,10 @@ class DogViewModel(
         }
     }
 
-    suspend fun insert(dog: Dog) {
-        dogDao.insert(dog)
+        suspend fun insert(dog: Dog) {
+            dogDao.insert(dog)
+        }
     }
-}
 
 
 

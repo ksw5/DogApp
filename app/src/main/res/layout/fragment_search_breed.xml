@@ -43,6 +43,7 @@
         android:layout_marginBottom="60dp"
         android:layout_marginLeft="8dp"
         android:background="@drawable/et_background"
+        android:lines="1"
         android:hint="Ex. Poodle"
         android:textColor="@color/main_orange"
         android:textColorHint="@color/grey" />
