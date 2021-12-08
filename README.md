@@ -19,12 +19,11 @@ Build System : [Gradle](https://gradle.org/)
 
 ## Architecture
 
-The application is built using Single-Activity Architecture with multiple fragments. I split the application into 4 layers:
+The application is built using MVVM Single-Activity Architecture with multiple fragments. I split the application into 3 layers:
 
-- API
-- Models
-- UI
-- Utils
+- Model
+- View
+- ViewModel
 
 ### Android Architecture Components
 
